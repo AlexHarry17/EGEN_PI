@@ -2,12 +2,12 @@
 # Source for code below: https://github.com/karulis/pybluez
 import threading
 import time
-
 import bluetooth
 
 
 # Class for controlling the motors from the raspberry pi
 class Control:
+
 
     def __init__(self):
         self.allowed_device_address = ['30:4B:07:51:40:C5', ]
@@ -20,7 +20,9 @@ class Control:
 
         while True:  # Loop while no device is found
             # Source for code below: https://github.com/karulis/pybluez
-            device = bluetooth.discover_devices(lookup_names=True)  # Search for the bluetooth device
+            # device = bluetooth.discover_devices(lookup_names=True)  # Search for the bluetooth device
+            # print(bluetooth.)
+            device = bluetooth.find_service('30:4B:07:51:40:C5')
             try:
                 device_name = device[0][1]
                 device_address = device[0][0]
