@@ -9,9 +9,10 @@ class Network:
       self.app_socket = socket.socket(socket.AF_INET, # Internet
                            socket.SOCK_DGRAM) # UDP
       self.app_socket.bind((UDP_IP, UDP_PORT))
-      motor_control = MotorControl()
-      self.get_data(motor_control)
+      
+      self.get_data(MotorControl())
       app_socket.close()
+
    def get_data(self, motor_control):
       while True:
          data, addr = self.app_socket.recvfrom(4096) # buffer size is 1024 bytes

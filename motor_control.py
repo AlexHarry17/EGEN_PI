@@ -10,21 +10,21 @@ class MotorControl:
         self.move[instruction]()
 
     def move_forward(self):
-        self.drive_motor.forward(1)
+        self.drive_motor.forward(1) # 1 moves forward, 0 stops motor
         print("moving forward")
 
     def move_backward(self):
-        self.drive_motor.backward(1)
+        self.drive_motor.backward(1) # 1 Moves backward, 0 stops motor
         print("moving backward")
 
-    def turn_right(self):
-        if self.turn_motor.angle < 45:
+    def turn_right(self):# Turns vehicle right
+        if self.turn_motor.angle < 45: # Max angle
             self.turn_motor.angle += 1
         print("turn right")
 
 
-    def turn_left(self):
-        if self.turn_motor.angle > -45:
+    def turn_left(self): # Turns vehicle left
+        if self.turn_motor.angle > -45: # Max angle
             self.turn_motor.angle -= 1
 
         print("turn left")
@@ -32,7 +32,7 @@ class MotorControl:
     def stop_turn(self):
         print('stop turn')
 
-    def stop_forward_reverse(self):
+    def stop_forward_reverse(self): # Stops forward / backward movement
         self.drive_motor.forward(0)
         self.drive_motor.backward(0)
         print('stop forward back')
