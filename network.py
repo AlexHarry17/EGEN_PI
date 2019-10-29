@@ -4,12 +4,15 @@ from motor_control import MotorControl
 class Network:
    def __init__(self):
       UDP_IP = "192.168.1.145"
-      UDP_PORT = 5005
+      UDP_PORT = 0
    # Code for connecting over wifi source: https://wiki.python.org/moin/UdpCommunication
       self.app_socket = socket.socket(socket.AF_INET, # Internet
                            socket.SOCK_DGRAM) # UDP
       self.app_socket.bind((UDP_IP, UDP_PORT))
-      
+
+      port = int(str(self.app_socket).split(',')[5].replace(')>', ''))
+      print("Port: ", port)
+      self.send_network_info(UDP_IP,port)
       self.get_data(MotorControl())
       app_socket.close()
 
@@ -20,5 +23,9 @@ class Network:
          data = data.decode('ascii')
          motor_control.function(data)
 
+   def send_network_info(self,ip,port):
+      while True:
+         print('sending on port ', port)
+         self.app_socket.sendto(b"test", (ip, port))
 
 Network()
