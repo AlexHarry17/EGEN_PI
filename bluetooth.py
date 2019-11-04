@@ -13,11 +13,11 @@ motor_control = MotorControl()
 server_sock=BluetoothSocket( RFCOMM )
 server_sock.bind(('B8:27:EB:9B:0D:DF',PORT_ANY))
 server_sock.listen(1)
-
 port = server_sock.getsockname()[1]
 
 
 print("Waiting for connection on RFCOMM channel %d" % port)
+
 client_sock, client_info = server_sock.accept()
 
 print("Accepted connection from ", client_info)
@@ -34,8 +34,8 @@ while True:
             except:
                print("Incorrect Movement")
     except IOError:
-        client_sock.close()
-        server_sock.close()
+      #   client_sock.close()
+      #   server_sock.close()
         server_sock=BluetoothSocket( RFCOMM )
         server_sock.bind(('B8:27:EB:9B:0D:DF',PORT_ANY))
         server_sock.listen(1)
@@ -45,7 +45,6 @@ while True:
 
         print("Waiting for connection on RFCOMM channel %d" % port)
         client_sock, client_info = server_sock.accept()
-
         print("Accepted connection from ", client_info)
 
 print("disconnected")
