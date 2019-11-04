@@ -1,4 +1,5 @@
 import gpiozero as gpio
+import time
 class MotorControl:
     def __init__(self):
         # Controling with gpiozero source: https://gpiozero.readthedocs.io/en/stable/api_output.html
@@ -7,7 +8,7 @@ class MotorControl:
         self.turn_motor = gpio.AngularServo(17,45,-45)
     def function(self, instruction):
         # Running methods from a dictionary souce: https://stackoverflow.com/questions/36849108/calling-a-function-from-within-a-dictionary, user: alecxe
-        self.move[instruction]()
+       self.move[instruction]()
 
     def move_forward(self):
         self.drive_motor.forward(1) # 1 moves forward, 0 stops motor
