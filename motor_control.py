@@ -4,7 +4,7 @@ class MotorControl:
     def __init__(self):
         # Controling with gpiozero source: https://gpiozero.readthedocs.io/en/stable/api_output.html
         self.move = {'forward': self.move_forward, 'backward': self.move_backward, 'right': self.turn_right, 'left': self.turn_left, 'stop turn': self.stop_turn, 'stop forward/backward': self.stop_forward_reverse}
-        self.drive_motor = gpio.Motor(23,24)
+        self.drive_motor = gpio.Motor(7,0)
         self.turn_motor = gpio.AngularServo(17,45,-45)
     def function(self, instruction):
         # Running methods from a dictionary souce: https://stackoverflow.com/questions/36849108/calling-a-function-from-within-a-dictionary, user: alecxe
