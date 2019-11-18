@@ -14,7 +14,7 @@ server_sock=BluetoothSocket( RFCOMM )
 # server_sock.bind(('B8:27:EB:9B:0D:DF',PORT_ANY))
 server_sock.bind(('',PORT_ANY))
 
-server_sock.listen(100)
+server_sock.listen(1000)
 port = server_sock.getsockname()[1]
 last_move = 0.0
 
@@ -25,7 +25,7 @@ client_sock, client_info = server_sock.accept()
 
 # time.sleep(1)
 
-client_sock.settimeout(2)
+client_sock.settimeout(0.5)
 # client_sock.setblocking(0)
 print("Accepted connection from ", client_info)
 
@@ -71,7 +71,7 @@ while True:
 #         server_sock.bind(('B8:27:EB:9B:0D:DF',PORT_ANY))
         server_sock.bind(('',PORT_ANY))
 
-        server_sock.listen(100)
+        server_sock.listen(1000)
 
         port = server_sock.getsockname()[1]
             
@@ -81,7 +81,7 @@ while True:
 #         client_sock.send(b'1')
 
 #         time.sleep(1)
-        client_sock.settimeout(1)
+        client_sock.settimeout(0.5)
         print("Accepted connection from ", client_info)
 
 
