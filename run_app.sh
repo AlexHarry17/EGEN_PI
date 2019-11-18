@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 network.py
+python3 bt_control.py
