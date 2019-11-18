@@ -23,7 +23,7 @@ print("Waiting for connection on RFCOMM channel %d" % port)
 client_sock, client_info = server_sock.accept()
 client_sock.send(b'1')
 
-time.sleep(1)
+# time.sleep(1)
 
 client_sock.settimeout(1)
 # client_sock.setblocking(0)
@@ -48,7 +48,7 @@ while True:
         print("Waiting for connection on RFCOMM channel %d" % port)
         client_sock, client_info = server_sock.accept()
 #         client_sock.send(b'1')
-        time.sleep(1)
+#         time.sleep(1)
         client_sock.settimeout(1)
         print("Accepted connection from ", client_info)
     try:
@@ -80,7 +80,7 @@ while True:
         client_sock, client_info = server_sock.accept()
 #         client_sock.send(b'1')
 
-        time.sleep(1)
+#         time.sleep(1)
         client_sock.settimeout(1)
         print("Accepted connection from ", client_info)
 
