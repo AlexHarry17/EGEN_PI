@@ -31,10 +31,7 @@ p2=GPIO.PWM(en2,40)
 
 p.start(en)
 p2.start(en2)
-print("\n")
-print("The default speed & direction of motor is LOW & Forward.....")
-print("r-run s-stop f-forward b-backward l-low m-medium h-high e-exit")
-print("\n")  
+
 
 class MotorControl:
 # Source for pwm servo control http://raspberrypiwiki.com/index.php/File:Raspi-MotorHAT-python3.zip
