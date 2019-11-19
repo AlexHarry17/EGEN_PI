@@ -6,14 +6,13 @@ from Raspi_PWM_Servo_Driver import PWM
 
 # import Raspi_MotorHAT
 
+# Following code for setting up GPIO Source: https://www.electronicshub.org/raspberry-pi-l298n-interface-tutorial-control-dc-motor-l298n-raspberry-pi/
 in1 = 24
 in2 = 23
 en = 25
 in3 = 16
 in4 = 20
 en2 = 21
-
-temp1=1
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1,GPIO.OUT)
