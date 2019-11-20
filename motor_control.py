@@ -13,6 +13,7 @@ en = 25
 in3 = 16
 in4 = 20
 en2 = 21
+frequency = 1
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1,GPIO.OUT)
@@ -25,11 +26,10 @@ GPIO.setup(in4,GPIO.OUT)
 GPIO.setup(en2,GPIO.OUT)
 GPIO.output(in3,GPIO.LOW)
 GPIO.output(in4,GPIO.LOW)
-p=GPIO.PWM(en,40)
-p2=GPIO.PWM(en2,40)
-
-p.start(en)
-p2.start(en2)
+p=GPIO.PWM(en,frequency)
+p2=GPIO.PWM(en2,frequency)
+p.start(100.0)
+p2.start(100.0)
 
 
 class MotorControl:
@@ -37,11 +37,11 @@ class MotorControl:
     def __init__(self):
         # Controling with gpiozero source: https://gpiozero.readthedocs.io/en/stable/api_output.html
         self.move = {'forward': self.move_forward, 'backward': self.move_backward, 'right': self.turn_right, 'left': self.turn_left, 'stop turn': self.stop_turn, 'stop forward/backward': self.stop_forward_reverse}
-        self.drive_motor = gpio.Motor(23,24)
-        self.drive_motor_2 = gpio.Motor(20,16)
+        self.drive_motor = gpio.Motor(24,23)
+        self.drive_motor_2 = gpio.Motor(16,20)
         self.pwm = PWM(0x6F)
         self.pwm.setPWMFreq(60)
-        self.motor_angle = 225.0
+        self.motor_angle = 370.0
         # self.turn_motor = gpio.AngularServo(0,45,-45)
     def function(self, instruction):
         # Running methods from a dictionary souce: https://stackoverflow.com/questions/36849108/calling-a-function-from-within-a-dictionary, user: alecxe
@@ -60,7 +60,7 @@ class MotorControl:
         print("moving backward")
 
     def turn_right(self):# Turns vehicle right
-        if self.motor_angle < 600: # Max angle
+        if self.motor_angle < 404: # Max angle
             self.motor_angle += 0.1
         self.pwm.setPWM(0, 0, int(self.motor_angle))
         # time.sleep(1)
@@ -70,9 +70,10 @@ class MotorControl:
     def turn_left(self): # Turns vehicle left
         # if self.turn_motor.angle > -45: # Max angle
             # self.turn_motor.angle -= 1
-        if self.motor_angle > 150: # Max angle
+        if self.motor_angle > 340: # Max angle
             self.motor_angle -= 0.1
         self.pwm.setPWM(0, 0, int(self.motor_angle))
+
         print("turn left")
 
     def stop_turn(self):
