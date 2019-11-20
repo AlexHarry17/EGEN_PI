@@ -8,9 +8,10 @@ import subprocess
 class Network:
    def __init__(self):
       # Source to get pi IP: https://www.raspberrypi.org/forums/viewtopic.php?t=79936, user: mikerr
-      UDP_IP = subprocess.check_output(['hostname', '-I']).decode('ascii').strip()
-    #   UDP_IP = socket.gethostbyname(socket.gethostname()) # Get ip source: https://stackoverflow.com/questions/48606440/get-ip-address-from-python, user: An0n
+      # UDP_IP = subprocess.check_output(['hostname', '-I']).decode('ascii').strip()
+      # UDP_IP = socket.gethostbyname(socket.gethostname()) # Get ip source: https://stackoverflow.com/questions/48606440/get-ip-address-from-python, user: An0n
       # UDP_PORT = 0
+      UDP_IP = '192.168.43.192'
       UDP_PORT = 38049
    # Code for connecting over wifi source: https://wiki.python.org/moin/UdpCommunication
       self.app_socket = socket.socket(socket.AF_INET, # Internet

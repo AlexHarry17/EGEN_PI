@@ -61,7 +61,7 @@ class MotorControl:
 
     def turn_right(self):# Turns vehicle right
         if self.motor_angle < 404: # Max angle
-            self.motor_angle += 0.1
+            self.motor_angle += 0.15
         self.pwm.setPWM(0, 0, int(self.motor_angle))
         # time.sleep(1)
         print("turn right")
@@ -71,7 +71,7 @@ class MotorControl:
         # if self.turn_motor.angle > -45: # Max angle
             # self.turn_motor.angle -= 1
         if self.motor_angle > 340: # Max angle
-            self.motor_angle -= 0.1
+            self.motor_angle -= 0.15
         self.pwm.setPWM(0, 0, int(self.motor_angle))
 
         print("turn left")
