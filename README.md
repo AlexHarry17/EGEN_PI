@@ -4,9 +4,8 @@ The code in this repository is linked to the Montana State University course EGE
 
 Written in Flutter, four basic parts are combined to create a Smart phone controller for an RC car. They connect through a raspberry pi. 
 
-1) UI - the User interface
+1) UI - User interface
 2) rapberry pi scripts
 3) network connection
-4) servo controls
-
+4) car controls (motor and servos)
 
